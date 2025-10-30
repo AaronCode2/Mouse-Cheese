@@ -54,5 +54,5 @@ Game::Released = True
 ## Links and Credits
 
 - Follow [me](https://messygear.itch.io/) on [itch.io](https://itch.io/)
-- Thank you for [Buttery Milk](https://pinjefro.itch.io/) for the [Asset Pack](https://pinjefro.itch.io/moon-cheese-free-assets)  
+- Thank you for [Pinjefro](https://pinjefro.itch.io/) for the [Asset Pack](https://pinjefro.itch.io/moon-cheese-free-assets)  
 - Thanks especially for you as we couldn't have done this without you! :)
