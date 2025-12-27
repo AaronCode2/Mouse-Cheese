@@ -13,8 +13,11 @@ Player::Player():
 
 Player::~Player() {
 
+#if !__linux__
     UnloadTexture(image[RIGHT]);
     UnloadTexture(image[LEFT]);
+#endif
+
 }
 
 void Player::update() {

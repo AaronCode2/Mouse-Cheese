@@ -19,10 +19,13 @@ Game::Game() {
 
 Game::~Game() {
 
+#if !__linux__
     UnloadTexture(Asteroid::images[0]);
     UnloadTexture(Asteroid::images[1]);
     UnloadTexture(Asteroid::images[2]);
     UnloadTexture(Asteroid::images[3]);
+#endif
+
 }
 
 void Game::start() {

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(Aaron)
+project(Mouse_Cheese)
 
 include(FetchContent)
 
@@ -27,5 +27,28 @@ SOURCE_FILES
     src/Classes/until.cpp
 )
 
-add_executable(Aaron ${SOURCE_FILES})
-target_link_libraries(Aaron raylib)
+add_executable(Mouse_Cheese ${SOURCE_FILES})
+target_link_libraries(Mouse_Cheese raylib)
+
+if(WIN32)
+
+    target_sources(Mouse_Cheese PRIVATE Assets/Windows/app.rc)
+    target_link_options(Mouse_Cheese PRIVATE $<$<CONFIG:Release>:-mwindows>)
+elseif(APPLE)
+
+    target_link_options(Mouse_Cheese PRIVATE $<$<CONFIG:Release>:-MACOSX_BUNDLE>)
+endif()
+
+target_compile_definitions(Mouse_Cheese PUBLIC $<$<CONFIG:Debug>:DEBUG_ENABLED>)
+
+if("${PLATFORM}" STREQUAL "Web")
+
+    message(FATAL_ERROR "Do not build in this project in the Web as it doesn't work!")
+endif()
+
+if(APPLE)
+
+    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
+    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+endif()
